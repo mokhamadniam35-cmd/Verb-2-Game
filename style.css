@@ -1,91 +1,81 @@
+:root {
+    --primary: #2c3e50;
+    --accent: #e74c3c;
+    --win: #2ecc71;
+}
+
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #e0eafc;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
     display: flex;
     justify-content: center;
-    padding-top: 50px;
+    min-height: 100vh;
 }
 
 #game-container {
-    width: 90%;
-    max-width: 800px;
-    background: white;
-    padding: 30px;
+    width: 95%;
+    max-width: 900px;
+    background: rgba(255, 255, 255, 0.9);
+    margin: 20px;
+    padding: 20px;
     border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
     text-align: center;
 }
 
-.school-tag { color: #2980b9; font-weight: bold; margin-bottom: 10px; }
-.creator-tag { font-size: 14px; color: #7f8c8d; margin-bottom: 20px; }
+.main-title { font-family: 'Bangers', cursive; font-size: 3rem; color: var(--primary); letter-spacing: 2px; }
 
-#track {
-    height: 180px;
-    background: #ecf0f1;
+#track-container {
+    height: 250px;
+    background: #34495e;
+    border-radius: 10px;
     position: relative;
-    border-right: 10px solid #e74c3c;
     margin: 20px 0;
-    overflow: hidden;
+    border-bottom: 8px solid #2c3e50;
 }
 
-.finish-line {
+.robot-unit {
     position: absolute;
-    right: 0; top: 0; bottom: 0;
-    writing-mode: vertical-rl;
-    background: #e74c3c;
-    color: white;
-    font-weight: bold;
-    padding: 5px;
-}
-
-.robot {
-    position: absolute;
-    left: 0;
-    font-size: 30px;
-    transition: left 0.3s ease;
-}
-
-.overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.85);
+    left: 20px;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    z-index: 100;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.modal-content {
+.robot-unit.bot { top: 130px; }
+.robot-unit .icon { font-size: 50px; }
+.robot-unit .label { color: white; font-weight: bold; font-size: 12px; }
+
+#question-card {
     background: white;
-    padding: 25px;
+    padding: 20px;
     border-radius: 15px;
-    width: 350px;
+    box-shadow: 0 -5px 15px rgba(0,0,0,0.05);
 }
 
-.verb-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 10px 0;
+#options-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
 }
 
-.verb-table td, .verb-table th {
-    border: 1px solid #ddd;
-    padding: 5px;
-}
-
-.btn-opt {
+.btn-option {
+    padding: 15px;
+    border: none;
     background: #3498db;
     color: white;
-    border: none;
-    padding: 10px 20px;
-    margin: 5px;
-    border-radius: 5px;
+    font-weight: bold;
+    border-radius: 10px;
     cursor: pointer;
+    transition: 0.2s;
 }
 
-#high-score-display {
-    background: #f1c40f;
-    padding: 10px;
-    margin: 15px 0;
-    border-radius: 8px;
-}
+.btn-option:hover { transform: translateY(-3px); background: #2980b9; }
+
+/* Modal Styles */
+.overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 1000; display: flex; justify-content: center; align-items: center; }
+.modal-content { background: white; padding: 40px; border-radius: 25px; width: 400px; text-align: center; }
+.lang-box { display: flex; text-align: left; font-size: 13px; gap: 15px; border-top: 1px solid #eee; padding-top: 15px; }

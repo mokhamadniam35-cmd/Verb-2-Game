@@ -1,53 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Robot Race - SMPN 1 Wiradesa</title>
+    <title>Robot Race Challenge - SMPN 1 Wiradesa</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <div id="instruction-modal" class="overlay">
         <div class="modal-content">
-            <h2>Welcome to Robot Race! 🤖</h2>
-            <p class="school-tag">SMP Negeri 1 Wiradesa</p>
+            <h2 class="title-game">ROBOT RACE CHALLENGE</h2>
+            <p class="school-tag">SMP NEGERI 1 WIRADESA</p>
             
-            <div class="learning-section">
-                <strong>Grammar Focus: Regular Verbs</strong>
-                <table class="verb-table">
-                    <tr><th>Verb 1</th><th>Verb 2 (Past)</th></tr>
-                    <tr><td>Study</td><td>Studied</td></tr>
-                    <tr><td>Play</td><td>Played</td></tr>
-                    <tr><td>Walk</td><td>Walked</td></tr>
-                </table>
+            <div class="lang-box">
+                <div class="en">
+                    <strong>Instructions (English):</strong>
+                    <ul>
+                        <li>Answer the questions correctly to move your robot.</li>
+                        <li>Learn the Past Tense: <em>Study -> Studied</em>.</li>
+                    </ul>
+                </div>
+                <div class="id">
+                    <strong>Instruksi (Bahasa Indonesia):</strong>
+                    <ul>
+                        <li>Jawab pertanyaan dengan benar agar robotmu maju.</li>
+                        <li>Pelajari Verb 2: <em>Study -> Studied</em>.</li>
+                    </ul>
+                </div>
             </div>
 
-            <ul class="instruction-list">
-                <li>Read the question carefully.</li>
-                <li>Choose the correct <strong>Verb 2</strong> form.</li>
-                <li>Finish as fast as you can to set a record!</li>
-            </ul>
-
-            <div id="high-score-display">🏆 Best Time: <span id="best-time">--</span>s</div>
-            
-            <button id="start-btn" onclick="startGame()">Start Game</button>
+            <div id="high-score-display">🏆 Best Record: <span id="best-time">--</span>s</div>
+            <button id="start-btn" onclick="startGame()">START MISSION!</button>
         </div>
     </div>
 
     <div id="game-container">
-        <h1>Robot Race Challenge</h1>
-        <p class="creator-tag">Created by: <strong>[Mokhamad Syukron Ni'am]</strong></p>
+        <h1 class="main-title">Robot Race Challenge</h1>
+        <p class="creator-tag">Created by: <strong>Mokhamad Syukron Ni'am</strong></p>
 
-        <div id="track">
-            <div id="robot-player" class="robot">🤖<br><small>You</small></div>
-            <div id="robot-bot" class="robot" style="top: 80px;">👾<br><small>Opponent</small></div>
+        <div id="track-container">
             <div class="finish-line">FINISH</div>
+            <div id="robot-player" class="robot-unit">
+                <span class="icon">🤖</span>
+                <span class="label">YOU</span>
+            </div>
+            <div id="robot-bot" class="robot-unit bot">
+                <span class="icon">👾</span>
+                <span class="label">BOT</span>
+            </div>
         </div>
 
-        <div id="question-area">
-            <h3 id="question-text">Click "Start Game" to begin!</h3>
-            <div id="options-container"></div>
+        <div id="question-card">
+            <div id="timer">Time: 0.0s</div>
+            <h3 id="question-text">Loading mission...</h3>
+            <div id="options-grid"></div>
         </div>
     </div>
 
